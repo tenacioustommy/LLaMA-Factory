@@ -1,6 +1,6 @@
 #!/bin/bash
 
 python scripts/llama_pro.py \
-    --model_name_or_path meta-llama/Meta-Llama-3-8B-Instruct \
-    --output_dir models/llama3-8b-pro \
+    --model_name_or_path meta-llama/Llama-3.2-3B-Instruct \
+    --output_dir models/Llama-3.2-3B-Instruct-pro \
     --num_expand 8

@@ -1,5 +1,5 @@
 ### model
-model_name_or_path: meta-llama/Meta-Llama-3-8B-Instruct
+model_name_or_path: meta-llama/Llama-3.2-3B-Instruct
 
 ### method
 stage: sft
@@ -8,7 +8,7 @@ finetuning_type: full
 mixture_of_depths: convert
 
 ### dataset
-dataset: identity,alpaca_en_demo
+dataset: identity,alpaca_zh_demo
 template: llama3
 cutoff_len: 1024
 max_samples: 1000
@@ -16,7 +16,7 @@ overwrite_cache: true
 preprocessing_num_workers: 16
 
 ### output
-output_dir: saves/llama3-8b-mod/full/sft
+output_dir: saves/Llama-3.2-3B-Instruct-mod/full/sft
 logging_steps: 10
 save_steps: 500
 plot_loss: true
@@ -30,7 +30,7 @@ learning_rate: 1.0e-5
 num_train_epochs: 3.0
 lr_scheduler_type: cosine
 warmup_ratio: 0.1
-pure_bf16: true
+pure_fp16: true
 ddp_timeout: 180000000
 
 ### eval

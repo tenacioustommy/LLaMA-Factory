@@ -1,5 +1,5 @@
 ### model
-model_name_or_path: Qwen/Qwen2-VL-7B-Instruct
+model_name_or_path: Qwen/Qwen2-VL-2B-Instruct
 
 ### method
 stage: dpo
@@ -18,7 +18,7 @@ overwrite_cache: true
 preprocessing_num_workers: 16
 
 ### output
-output_dir: saves/qwen2_vl-7b/lora/dpo
+output_dir: saves/Qwen2-VL-2B-Instruct/lora/dpo
 logging_steps: 10
 save_steps: 500
 plot_loss: true
@@ -31,7 +31,7 @@ learning_rate: 5.0e-6
 num_train_epochs: 3.0
 lr_scheduler_type: cosine
 warmup_ratio: 0.1
-bf16: true
+fp16: true
 ddp_timeout: 180000000
 
 ### eval

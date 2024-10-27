@@ -1,14 +1,19 @@
 ### model
-model_name_or_path: Qwen/Qwen2-VL-7B-Instruct
+model_name_or_path: Qwen/Qwen2-VL-2B-Instruct
 
 ### method
 stage: sft
 do_train: true
 finetuning_type: lora
-lora_target: all
+lora_target: q_proj,v_proj,k_proj
+# resume_from_checkpoint: true
+finetuning_type: lora
+lora_rank: 8
+lora_alpha: 16
+lora_dropout: 0.1
 
 ### dataset
-dataset: mllm_demo,identity  # video: mllm_video_demo
+dataset: mllm_demo,identity, mllm_video_demo
 template: qwen2_vl
 cutoff_len: 1024
 max_samples: 1000
@@ -16,20 +21,21 @@ overwrite_cache: true
 preprocessing_num_workers: 16
 
 ### output
-output_dir: saves/qwen2_vl-7b/lora/sft
+output_dir: saves/Qwen2-VL-2B-Instruct/lora/sft2
 logging_steps: 10
-save_steps: 500
+save_steps: 20
 plot_loss: true
 overwrite_output_dir: true
 
 ### train
-per_device_train_batch_size: 1
+flash_attn: fa2
+per_device_train_batch_size: 4
 gradient_accumulation_steps: 8
 learning_rate: 1.0e-4
-num_train_epochs: 3.0
+num_train_epochs: 30.0
 lr_scheduler_type: cosine
 warmup_ratio: 0.1
-bf16: true
+fp16: true
 ddp_timeout: 180000000
 
 ### eval
